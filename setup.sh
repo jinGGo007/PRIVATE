@@ -113,7 +113,6 @@ echo "   - Whatsapp                : 999"  | tee -a log-install.txt
 echo "   - Facebook                : johnlabu" | tee -a log-install.txt
 echo "------------------Script Modded By JINGGO007-----------------" | tee -a log-install.txt
 echo ""
-echo " Reboot 20 Sec"
 sleep 1
 rm -f setup.sh
 read -n 1 -r -s -p $'Press any key to reboot...\n';reboot

@@ -2,10 +2,6 @@
 MYIP=$(wget -qO- icanhazip.com);
 
 # installing ohpserver
-if [[ -e /usr/bin/ohpserver  ]]; then
-echo -e "OHPSERVER ALREADY INSTALL"
-sleep 3;clear
-else
 echo -e "INSTALLING OHPSERVER"
 sleep 3;clear
 wget https://github.com/lfasmpao/open-http-puncher/releases/download/0.1/ohpserver-linux32.zip

@@ -115,3 +115,11 @@ echo -e " Nginx             : Nginx Service is "$green"running"$NC""
 else                                                                                    
 echo -e " Nginx             : Nginx Service is "$red"not running (Error)"$NC""      
 fi
+status="$(systemctl show ohp.service --no-page)"                                   
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
+if [ "${status_text}" == "active" ]                                                     
+then                                                                                    
+echo -e " OHP               : OHP Service is "$green"running"$NC""                  
+else                                                                                    
+echo -e " OHP               : OHP Service is "$red"not running (Error)"$NC""        
+fi

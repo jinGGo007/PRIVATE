@@ -1,13 +1,5 @@
 #!/bin/bash
 MYIP=$(wget -qO- icanhazip.com);
-echo -e "${green}CHECKING SCRIPT ACCESS${NC}"
-IZIN=$( curl https://raw.githubusercontent.com/jinGGo007/VPS/main/IP | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-echo -e "${green}ACCESS GRANTED...${NC}"
-else
-echo -e "${green}ACCESS DENIED...PM TELEGRAM OWNER${NC}"
-exit 1
-fi
 
 # installing ohpserver
 if [[ -e /usr/bin/ohpserver  ]]; then

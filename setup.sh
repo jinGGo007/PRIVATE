@@ -86,7 +86,7 @@ echo "   - Squid Proxy             : 3128, 8080 (limit to IP Server)"  | tee -a 
 echo "   - Badvpn                  : 7100, 7200, 7300"  | tee -a log-install.txt
 echo "   - Nginx                   : 81"  | tee -a log-install.txt
 echo "   - Wireguard               : 7070"  | tee -a log-install.txt
-echo "   - L2TP/IPSEC VPN          : 1701"  | tee -a log-install.txt
+echo "   - SSH WS/OVPN WS          : 2082, 2095"  | tee -a log-install.txt
 echo "   - OHP DROPBEAR            : 8090"  | tee -a log-install.txt
 echo "   - OHP OVPN                : 8089"  | tee -a log-install.txt
 echo "   - Shadowsocks-R           : 1443-1543"  | tee -a log-install.txt

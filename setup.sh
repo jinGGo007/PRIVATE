@@ -39,8 +39,6 @@ wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/sodosok.sh && chmo
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-#install ohp
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
 
 rm -f /root/ssh-vpn.sh
 rm -f /root/wg.sh

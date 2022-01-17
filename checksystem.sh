@@ -127,15 +127,15 @@ status="$(systemctl show edussh-nontls.service --no-page)"
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " SSH WS               : SSH WS Service is "$green"running"$NC""                  
+echo -e " SSH WS            : SSH WS Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e " SSH WS               : SSH WS Service is "$red"not running (Error)"$NC""        
+echo -e " SSH WS            : SSH WS Service is "$red"not running (Error)"$NC""        
 fi
 status="$(systemctl show edu-ovpn.service --no-page)"                                   
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " OVPN WS               : OVPN WS Service is "$green"running"$NC""                  
+echo -e " OVPN WS           : OVPN WS Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e " OVON WS               : OVPN WS Service is "$red"not running (Error)"$NC""        
+echo -e " OVON WS           : OVPN WS Service is "$red"not running (Error)"$NC""        
 fi

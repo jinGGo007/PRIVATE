@@ -16,7 +16,7 @@ date
 mkdir -p /etc/trojan/
 touch /etc/trojan/akun.conf
 # install v2ray
-wget https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/go.sh && chmod +x go.sh && ./go.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 mkdir /root/.acme.sh
@@ -493,24 +493,24 @@ systemctl enable v2ray
 
 cd /usr/bin
 
-wget -O mssh "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/mssh.sh"
-wget -O mtrojan "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/mtrojan.sh"
-wget -O mvless "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/mvless.sh"
-wget -O mvmess "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/mvmess.sh"
-wget -O add-ws "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/add-ws.sh"
-wget -O add-vless "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/add-vless.sh"
-wget -O add-tr "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/add-tr.sh"
-wget -O del-ws "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/del-ws.sh"
-wget -O del-vless "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/del-vless.sh"
-wget -O del-tr "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/del-tr.sh"
-wget -O cek-ws "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/cek-ws.sh"
-wget -O cek-vless "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/cek-vless.sh"
-wget -O cek-tr "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/cek-tr.sh"
-wget -O renew-ws "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/renew-ws.sh"
-wget -O renew-vless "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/renew-vless.sh"
-wget -O renew-tr "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/renew-tr.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/cert.sh"
-wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/SCRIPT/main/checksystem.sh"
+wget -O mssh "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/mssh.sh"
+wget -O mtrojan "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/mtrojan.sh"
+wget -O mvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/mvless.sh"
+wget -O mvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/mvmess.sh"
+wget -O add-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/add-ws.sh"
+wget -O add-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/add-vless.sh"
+wget -O add-tr "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/add-tr.sh"
+wget -O del-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/del-ws.sh"
+wget -O del-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/del-vless.sh"
+wget -O del-tr "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/del-tr.sh"
+wget -O cek-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/cek-ws.sh"
+wget -O cek-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/cek-vless.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/cek-tr.sh"
+wget -O renew-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew-ws.sh"
+wget -O renew-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew-vless.sh"
+wget -O renew-tr "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew-tr.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/cert.sh"
+wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/checksystem.sh"
 chmod +x mssh
 chmod +x mtrojan
 chmod +x mvless

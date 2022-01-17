@@ -71,6 +71,4 @@ echo ""
 echo ""
 echo "DROPBEAR OHP : 8090" | tee -a log-ohp.txt
 echo "OPENVPN OHP : 8089" | tee -a log-ohp.txt
-echo ""
-echo ""
-read -n 1 -r -s -p $'Press any key to reboot...\n';reboot
+

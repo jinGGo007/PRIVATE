@@ -189,16 +189,6 @@ wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/vpn.sh && chmod +x
 # install fail2ban
 apt -y install fail2ban
 
-# Install DDoS Deflate
-apt install -y dnsutils tcpdump dsniff grepcidr
-wget -q -O ddos.zip "https://raw.githubusercontent.com/mdxscript/mdScript/main/Files/ddos-deflate.zip"
-unzip ddos.zip
-cd ddos-deflate
-chmod +x install.sh
-./install.sh
-cd
-rm -rf ddos.zip ddos-deflate
-
 # banner /etc/issue.net
 wget -O /etc/issue.net "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/issue.net"
 echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config

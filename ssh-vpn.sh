@@ -189,37 +189,15 @@ wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/vpn.sh && chmod +x
 # install fail2ban
 apt -y install fail2ban
 
-# Install DDOS Flate
-if [ -d '/usr/local/ddos' ]; then
-	echo; echo; echo "Please un-install the previous version first"
-	exit 0
-else
-	mkdir /usr/local/ddos
-fi
-clear
-echo; echo 'Installing DOS-Deflate 0.6'; echo
-echo; echo -n 'Downloading source files...'
-wget -q -O /usr/local/ddos/ddos.conf http://www.ctohome.com/linux-vps-pack/soft/ddos/ddos.conf
-echo -n '.'
-wget -q -O /usr/local/ddos/LICENSE http://www.inetbase.com/scripts/ddos/LICENSE
-echo -n '.'
-wget -q -O /usr/local/ddos/ignore.ip.list http://www.ctohome.com/linux-vps-pack/soft/ddos/ignore.ip.list
-
-/sbin/ifconfig -a|grep inet|grep -v 127.0.0.1|grep -v inet6|awk '{print $2}'|tr -d "addr:" >>  /usr/local/ddos/ignore.ip.list;
-chattr +i /usr/local/ddos/ignore.ip.list;
-
-echo -n '.'
-wget -q -O /usr/local/ddos/ddos.sh http://www.ctohome.com/linux-vps-pack/soft/ddos/ddos-deflate.sh
-chmod 0755 /usr/local/ddos/ddos.sh
-cp -s /usr/local/ddos/ddos.sh /usr/local/sbin/ddos
-echo '...done'
-
-echo; echo -n 'Creating cron to run script every minute.....(Default setting)'
-/usr/local/ddos/ddos.sh --cron > /dev/null 2>&1
-echo '.....done'
-echo; echo 'Installation has completed.'
-echo 'Config file is at /usr/local/ddos/ddos.conf'
-echo 'Please send in your comments and/or suggestions to johnlabu2801@gmail.com'
+# Install DDoS Deflate
+apt install -y dnsutils tcpdump dsniff grepcidr
+wget -q -O ddos.zip "https://raw.githubusercontent.com/mdxscript/mdScript/main/Files/ddos-deflate.zip"
+unzip ddos.zip
+cd ddos-deflate
+chmod +x install.sh
+./install.sh
+cd
+rm -rf ddos.zip ddos-deflate
 
 # banner /etc/issue.net
 wget -O /etc/issue.net "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/issue.net"

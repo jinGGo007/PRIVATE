@@ -16,9 +16,6 @@ MYIP=$(wget -qO- icanhazip.com);
 echo "Checking VPS"
 clear
 # Subdomain Settings
-echo '============================================='
-echo '       Domain Will Be Setting '
-echo '============================================='
 mkdir /var/lib/premium-script;
 clear
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
@@ -28,34 +25,16 @@ echo "$host" > /etc/v2ray/domain
 echo "$host" > /root/domain
 
 #install ssh ovpn
-echo '============================================='
-echo '        Installing SSH & OPENVPN & WS '
-echo '============================================='
 wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 #install ssr
-echo '============================================='
-echo '        Installing ssr '
-echo '============================================='
 wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
 #install ss
-echo '============================================='
-echo '        Installing shadowsocksobfs '
-echo '============================================='
 wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 #installwg
-echo '============================================='
-echo '        Installing WIREGUARD '
-echo '============================================='
 wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
-echo '============================================='
-echo '        Installing V2RAY '
-echo '============================================='
 wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
 #install ohp
-echo '============================================='
-echo '        Installing OHP '
-echo '============================================='
 wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
 
 rm -f /root/ssh-vpn.sh

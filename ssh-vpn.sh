@@ -181,7 +181,7 @@ apt -y install tmux
 apt -y install ruby
 gem install lolcat
 apt -y install figlet
-wget -q https://raw.githubusercontent.com/jinGGo007/SCRIPT/PRIVATE/edu.sh && chmod +x edu.sh && ./edu.sh
+wget -q https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/edu.sh && chmod +x edu.sh && ./edu.sh
 
 #OpenVPN
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/vpn.sh && chmod +x vpn.sh && ./vpn.sh

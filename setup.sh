@@ -13,26 +13,53 @@ NC='\e[0m'
 
 # Script Access 
 MYIP=$(wget -qO- icanhazip.com);
-
+echo "Checking VPS"
+clear
 # Subdomain Settings
+echo '============================================='
+echo '       Domain Will Be Setting '
+echo '============================================='
+mkdir /etc/v2ray
+mkdir /root/domain
 mkdir /var/lib/premium-script;
+
+clear
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
 read -rp "    Enter your Domain/Host: " -e host
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-echo "$host" > /etc/v2ray/domain
-echo "$host" > /root/domain
+echo "$host" >> /etc/v2ray/domain
+echo "$host" >> /root/domain
 
 #install ssh ovpn
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+echo '============================================='
+echo '        Installing SSH & OPENVPN & WS '
+echo '============================================='
+wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 #install ssr
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+echo '============================================='
+echo '        Installing ssr '
+echo '============================================='
+wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+#install ss
+echo '============================================='
+echo '        Installing shadowsocksobfs '
+echo '============================================='
+wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 #installwg
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+echo '============================================='
+echo '        Installing WIREGUARD '
+echo '============================================='
+wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 #install v2ray
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+echo '============================================='
+echo '        Installing V2RAY '
+echo '============================================='
+wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
 #install ohp
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
+echo '============================================='
+echo '        Installing OHP '
+echo '============================================='
+wget https://raw.githubusercontent.com/jinGGo007/VPS-SCRIPT/main/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
 
 rm -f /root/ssh-vpn.sh
 rm -f /root/wg.sh

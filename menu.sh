@@ -14,14 +14,10 @@ clear
 MYIP=$(wget -qO- ifconfig.co);
 echo "Checking VPS"
 clear
-vnstat -i eth0 | grep "estimated" | awk '{print $8 $9}' | tee -a /root/band1.txt &>/dev/null
-total="$(sed -n 'p;n' /root/band1.txt)"
-vnstat -i eth0 | grep "estimated" | awk '{print $8 $9}' | tee -a /root/band2.txt &>/dev/null
-sed -i '1d' /root/band2.txt
-today="$(cat /root/band2.txt)"
 
-echo -e  " AUTOSCRIPT LITE VERSION MODDED BY JINGGO007" | lolcat
-echo -e  " $op \e[032;1mVNSTAT : \e[0mTODAY $today   \e[0mTOTAL $total     "
+echo -e  " ═════════════════════════════════════════════════════════════════ " | lolcat
+echo -e  "          AUTOSCRIPT LITE VERSION MODDED BY JINGGO007" | lolcat
+echo -e  " ═════════════════════════════════════════════════════════════════ " | lolcat
 echo -e  " "
 echo -e  " ═════════════════════════════════════════════════════════════════ "
 echo -e  " MAIN MENU "                                       

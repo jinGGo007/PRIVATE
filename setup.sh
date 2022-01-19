@@ -19,16 +19,13 @@ clear
 echo '============================================='
 echo '       Domain Will Be Setting '
 echo '============================================='
-mkdir /etc/v2ray;
-mkdir /root/domain;
 mkdir /var/lib/premium-script;
-
 clear
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
 read -rp "    Enter your Domain/Host: " -e host
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-echo "$host" >> /etc/v2ray/domain
-echo "$host" >> /root/domain
+echo "$host" > /etc/v2ray/domain
+echo "$host" > /root/domain
 
 #install ssh ovpn
 echo '============================================='

@@ -15,9 +15,9 @@ MYIP=$(wget -qO- ifconfig.co);
 echo "Checking VPS"
 clear
 
-echo -e  " ═════════════════════════════════════════════════════════════════ " | lolcat
+
 echo -e  "          AUTOSCRIPT LITE VERSION MODDED BY JINGGO007" | lolcat
-echo -e  " ═════════════════════════════════════════════════════════════════ " | lolcat
+
 echo -e  " "
 echo -e  " ═════════════════════════════════════════════════════════════════ "
 echo -e  " MAIN MENU "                                       

@@ -12,12 +12,12 @@ green='\e[0;32m'
 NC='\e[0m'
 
 # Script Access 
+# Script Access 
 MYIP=$(wget -qO- icanhazip.com);
-echo "Checking VPS"
+sleep 2
 
 # Subdomain Settings
 mkdir /var/lib/premium-script;
-clear
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
 read -rp "    Enter your Domain/Host: " -e host
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf

@@ -19,8 +19,8 @@ clear
 echo '============================================='
 echo '       Domain Will Be Setting '
 echo '============================================='
-mkdir /etc/v2ray
-mkdir /root/domain
+mkdir /etc/v2ray;
+mkdir /root/domain;
 mkdir /var/lib/premium-script;
 
 clear

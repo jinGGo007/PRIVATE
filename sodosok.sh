@@ -91,7 +91,7 @@ cd /usr/bin
 wget -O add-ss "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/add-ss.sh"
 wget -O del-ss "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/del-ss.sh"
 wget -O cek-ss "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/cek-ss.sh"
-wget -O renew-ss "hhttps://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew-ss.sh"
+wget -O renew-ss "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew-ss.sh"
 chmod +x add-ss
 chmod +x del-ss
 chmod +x cek-ss

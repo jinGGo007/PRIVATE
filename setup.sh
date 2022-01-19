@@ -16,13 +16,15 @@ MYIP=$(wget -qO- icanhazip.com);
 sleep 2
 
 # Subdomain Settings
+mkdir /root;
+mkdir /etc/xray;
 mkdir /var/lib/premium-script;
 clear
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
 read -rp "    Enter your Domain/Host: " -e host
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-echo "$host" > /etc/v2ray/domain
-echo "$host" > /root/domain
+echo "$host" >> /etc/v2ray/domain
+echo "$host" >> /root/domain
 
 #install ssh ovpn
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh

@@ -63,4 +63,5 @@ echo ""
 echo ""
 echo "DROPBEAR OHP : 8090" | tee -a log-ohp.txt
 echo "OPENVPN OHP : 8089" | tee -a log-ohp.txt
+sleep 3;clear
 

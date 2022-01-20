@@ -16,11 +16,11 @@ MYIP=$(wget -qO- icanhazip.com);
 sleep 2
 
 # Subdomain Settings
-echo "============================================="
-echo "       Setting Domain "
-echo "============================================="
+echo -e "============================================="
+echo -e "${green}       Setting Domain${NC} "
+echo -e "============================================="
 mkdir /root;
-mkdir /etc/xray;
+mkdir /etc/v2ray
 mkdir /var/lib/premium-script;
 clear
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
@@ -28,32 +28,55 @@ read -rp "    Enter your Domain/Host: " -e host
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
 echo "$host" >> /etc/v2ray/domain
 echo "$host" >> /root/domain
+sleep 2
+clear
+
+# Update & Upgrade
+apt update
+apt upgrade -y
+
+# Disable IPv6
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1
+sysctl -w net.ipv6.conf.lo.disable_ipv6=1
+echo -e "net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1" >> /etc/sysctl.conf
+
+# Install curl
+apt install -y bzip2 gzip coreutils screen curl
+sleep 2
 
 #install ssh ovpn
 echo "============================================="
 echo "        Installing SSH & OPENVPN & WS "
 echo "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+
 #install ssr
 echo "============================================="
 echo "        Installing ssr "
 echo "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+
 #install ss
 echo "============================================="
 echo "        Installing shadowsocksobfs "
 echo "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
-#installwg
+
+#install wg
 echo "============================================="
 echo "        Installing WIREGUARD "
 echo "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+
 #install v2ray
 echo "============================================="
 echo "        Installing V2RAY "
 echo "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+
 #install ohp
 echo "============================================="
 echo "        Installing OHP "

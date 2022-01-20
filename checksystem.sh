@@ -137,5 +137,5 @@ if [ "${status_text}" == "active" ]
 then                                                                                    
 echo -e " OVPN WS           : OVPN WS Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e " OVON WS           : OVPN WS Service is "$red"not running (Error)"$NC""        
+echo -e " OVPN WS           : OVPN WS Service is "$red"not running (Error)"$NC""        
 fi

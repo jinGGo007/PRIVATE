@@ -17,7 +17,7 @@ sleep 2
 
 # Subdomain Settings
 echo -e "============================================="
-echo -e "${green}       Setting Domain${NC} "
+echo -e "${green}      Input Domain${NC} "
 echo -e "============================================="
 mkdir /root;
 mkdir /etc/v2ray

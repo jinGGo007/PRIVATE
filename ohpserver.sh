@@ -22,8 +22,8 @@ sleep 3;clear
 rm /usr/bin/ohp
 cat> /usr/bin/ohp << END
 #!/bin/bash
-screen -dmS dropbear ohpserver -port 8090 -proxy $MYIP:8080 -tunnel $MYIP:143
-screen -dmS openvpn ohpserver -port 8089 -proxy $MYIP:8080 -tunnel $MYIP:1194
+screen -dmS dropbear ohpserver -port 8090 -proxy $MYIP:3128 -tunnel $MYIP:143
+screen -dmS openvpn ohpserver -port 8089 -proxy $MYIP:3128 -tunnel $MYIP:1194
 END
 chmod +x /usr/bin/ohp
 else
@@ -31,8 +31,8 @@ echo -e "ADDING OHP FOR OHPSERVER"
 sleep 3;clear
 cat> /usr/bin/ohp << END
 #!/bin/bash
-screen -dmS dropbear ohpserver -port 8090 -proxy $MYIP:8080 -tunnel $MYIP:143
-screen -dmS openvpn ohpserver -port 8089 -proxy $MYIP:8080 -tunnel $MYIP:1194
+screen -dmS dropbear ohpserver -port 8090 -proxy $MYIP:3128 -tunnel $MYIP:143
+screen -dmS openvpn ohpserver -port 8089 -proxy $MYIP:3128 -tunnel $MYIP:1194
 END
 chmod +x /usr/bin/ohp
 fi

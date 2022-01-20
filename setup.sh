@@ -48,39 +48,39 @@ apt install -y bzip2 gzip coreutils screen curl
 sleep 2
 
 #install ssh ovpn
-echo "============================================="
-echo "        Installing SSH & OPENVPN & WS "
-echo "============================================="
+echo -e "============================================="
+echo -e " ${green} Installing SSH & OPENVPN & WS ${NC}"
+echo -e "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
-
+sleep 2
 #install ssr
-echo "============================================="
-echo "        Installing ssr "
-echo "============================================="
+echo -e "============================================="
+echo -e " ${green}        Installing ssr${NC} "
+echo -e "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
-
+sleep 2
 #install ss
-echo "============================================="
-echo "        Installing shadowsocksobfs "
-echo "============================================="
+echo -e "============================================="
+echo -e " ${green}        Installing shadowsocksobfs${NC} "
+echo -e "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
-
+sleep 2
 #install wg
-echo "============================================="
-echo "        Installing WIREGUARD "
-echo "============================================="
+echo -e "============================================="
+echo -e " ${green}        Installing WIREGUARD${NC} "
+echo -e "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
-
+sleep 2
 #install v2ray
-echo "============================================="
-echo "        Installing V2RAY "
-echo "============================================="
+echo -e "============================================="
+echo -e " ${green}        Installing V2RAY${NC} "
+echo -e "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-
+sleep 2
 #install ohp
-echo "============================================="
-echo "        Installing OHP "
-echo "============================================="
+echo -e "============================================="
+echo -e " ${green}        Installing OHP${NC} "
+echo -e "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
 
 rm -f /root/ssh-vpn.sh

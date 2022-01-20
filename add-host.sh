@@ -20,6 +20,11 @@ systemctl stop v2ray@none
 systemctl start v2ray
 systemctl start v2ray@none
 echo Done
+systemctl restart v2ray.service
+systemctl restart v2ray@none.service
+systemctl restart v2ray@vless.service
+systemctl restart v2ray@vnone.service
+systemctl restart trojan
 sleep 0.5
 clear 
 

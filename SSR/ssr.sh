@@ -122,7 +122,7 @@ if [[ ${OS} == "centos" ]]; then
 }
 Start_SSR(){
 	check_pid
-	wget -O /etc/init.d/ssrmu "https://raw.githubusercontent.com/jinGGo007/PRIVATE/SSR/main/ssrmu"
+	wget -O /etc/init.d/ssrmu "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/SSR/ssrmu"
 	/etc/init.d/ssrmu start
 }
 Install_SSR(){
@@ -138,10 +138,10 @@ Save_iptables
 Start_SSR
 }
 Install_SSR
-wget -O /usr/bin/mss-ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/SSR/main/mssr.sh && chmod +x /usr/bin/mssr
-wget -O /usr/bin/ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/SSR/main/ssrmu.sh && chmod +x /usr/bin/ssr
-wget -O /usr/bin/add-ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/SSR/main/add-ssr.sh && chmod +x /usr/bin/add-ssr
-wget -O /usr/bin/del-ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/SSR/main/del-ssr.sh && chmod +x /usr/bin/del-ssr
-wget -O /usr/bin/renew-ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/SSR/main/renew-ssr.sh && chmod +x /usr/bin/renew-ssr
+wget -O /usr/bin/mss-ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/SSR/mssr.sh && chmod +x /usr/bin/mssr
+wget -O /usr/bin/ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/SSR/ssrmu.sh && chmod +x /usr/bin/ssr
+wget -O /usr/bin/add-ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/SSR/add-ssr.sh && chmod +x /usr/bin/add-ssr
+wget -O /usr/bin/del-ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/SSR/del-ssr.sh && chmod +x /usr/bin/del-ssr
+wget -O /usr/bin/renew-ssr https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/SSR/renew-ssr.sh && chmod +x /usr/bin/renew-ssr
 touch /usr/local/shadowsocksr/akun.conf
 rm -f /root/ssr.sh

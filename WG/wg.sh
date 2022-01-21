@@ -88,11 +88,11 @@ WG_RUNNING=$?
 
 # Tambahan
 cd /usr/bin
-wget -O mwg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/mwg.sh"
-wget -O add-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/add-wg.sh"
-wget -O del-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/del-wg.sh"
-wget -O cek-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/cek-wg.sh"
-wget -O renew-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew-wg.sh"
+wget -O mwg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/WG/main/mwg.sh"
+wget -O add-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/WG/main/add-wg.sh"
+wget -O del-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/WG/main/del-wg.sh"
+wget -O cek-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/WG/main/cek-wg.sh"
+wget -O renew-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/WG/main/renew-wg.sh"
 chmod +x mwg
 chmod +x add-wg
 chmod +x del-wg

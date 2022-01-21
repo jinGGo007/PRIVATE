@@ -63,7 +63,7 @@ sleep 2
 echo -e "============================================="
 echo -e " ${green} Installing SSH & OPENVPN & WS ${NC}"
 echo -e "============================================="
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/SSHOVPN/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 
 #install ssr
 echo -e "============================================="
@@ -125,6 +125,70 @@ wget -O /etc/set.sh "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/se
 chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
+clear
+
+# download script menu
+cd /usr/bin
+wget -O menu "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/menu.sh"
+wget -O add-host "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/add-host.sh"
+wget -O about "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/about.sh"
+wget -O usernew "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/trial.sh"
+wget -O hapus "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/hapus.sh"
+wget -O member "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/member.sh"
+wget -O delete "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/delete.sh"
+wget -O cek "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/cek.sh"
+wget -O restart "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/info.sh"
+wget -O ram "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/ram.sh"
+wget -O renew "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/renew.sh"
+wget -O autokill "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/MENU/main/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/tendang.sh"
+wget -O change "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/change.sh"
+wget -O port-ovpn "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/port-ovpn.sh"
+wget -O port-ssl "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/port-ssl.sh"
+wget -O port-wg "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/port-wg.sh"
+wget -O port-tr "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/port-tr.sh"
+wget -O port-squid "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/port-squid.sh"
+wget -O port-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/port-ws.sh"
+wget -O port-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/port-vless.sh"
+wget -O wbmn "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/xp.sh"
+wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/MENU/main/checksystem.sh"
+chmod +x menu
+chmod +x add-host
+chmod +x usernew
+chmod +x trial
+chmod +x hapus
+chmod +x member
+chmod +x delete
+chmod +x cek
+chmod +x restart
+chmod +x speedtest
+chmod +x info
+chmod +x about
+chmod +x autokill
+chmod +x tendang
+chmod +x ceklim
+chmod +x ram
+chmod +x renew
+chmod +x clear-log
+chmod +x change
+chmod +x port-ovpn
+chmod +x port-ssl
+chmod +x port-wg
+chmod +x port-tr
+chmod +x port-squid
+chmod +x port-ws
+chmod +x port-vless
+chmod +x wbmn
+chmod +x xp
+chmod +x checksystem
+echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
+echo "0 0 * * * root xp" >> /etc/crontab
+sleep 2
 clear
 echo " "
 echo "Installation Completed!!"

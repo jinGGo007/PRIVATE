@@ -268,6 +268,7 @@ wget -O port-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/port-w
 wget -O port-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/port-vless.sh"
 wget -O wbmn "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/webmin.sh"
 wget -O xp "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/xp.sh"
+wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/checksystem.sh"
 chmod +x menu
 chmod +x add-host
 chmod +x usernew
@@ -296,6 +297,7 @@ chmod +x port-ws
 chmod +x port-vless
 chmod +x wbmn
 chmod +x xp
+chmod +x checksystem
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files

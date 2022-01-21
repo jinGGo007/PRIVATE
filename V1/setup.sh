@@ -108,28 +108,9 @@ rm -f /root/ssr.sh
 rm -f /root/ins-vt.sh
 rm -f /root/ohpserver.sh
 
-apt install -y dos2unix && dos2unix running
-cat <<EOF> /etc/systemd/system/autosett.service
-[Unit]
-Description=autosetting
-Documentation=JINGGO007
-[Service]
-Type=oneshot
-ExecStart=/bin/bash /etc/set.sh
-RemainAfterExit=yes
-[Install]
-WantedBy=multi-user.target
-EOF
-systemctl daemon-reload
-systemctl enable autosett
-wget -O /etc/set.sh "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/set.sh"
-chmod +x /etc/set.sh
-history -c
-echo "1.2" > /home/ver
-clear
 # download script menu
 echo -e "============================================="
-echo -e " ${green} Installing SSH & OPENVPN & WS ${NC}"
+echo -e " ${green} DOWNLOAD MENU SCRIPT ${NC}"
 echo -e "============================================="
 sleep 2
 cd /usr/bin
@@ -192,7 +173,25 @@ chmod +x xp
 chmod +x checksystem
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
-sleep 2
+
+apt install -y dos2unix && dos2unix running
+cat <<EOF> /etc/systemd/system/autosett.service
+[Unit]
+Description=autosetting
+Documentation=JINGGO007
+[Service]
+Type=oneshot
+ExecStart=/bin/bash /etc/set.sh
+RemainAfterExit=yes
+[Install]
+WantedBy=multi-user.target
+EOF
+systemctl daemon-reload
+systemctl enable autosett
+wget -O /etc/set.sh "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/set.sh"
+chmod +x /etc/set.sh
+history -c
+echo "1.2" > /home/ver
 clear
 echo " "
 echo "Installation Completed!!"

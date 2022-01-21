@@ -510,7 +510,6 @@ wget -O renew-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew
 wget -O renew-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew-vless.sh"
 wget -O renew-tr "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/renew-tr.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/cert.sh"
-wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/checksystem.sh"
 chmod +x mssh
 chmod +x mtrojan
 chmod +x mvless
@@ -528,7 +527,6 @@ chmod +x renew-ws
 chmod +x renew-vless
 chmod +x renew-tr
 chmod +x certv2ray
-chmod +x checksystem
 cd
 rm -f ins-vt.sh
 mv /root/domain /etc/v2ray

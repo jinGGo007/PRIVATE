@@ -19,17 +19,29 @@ sleep 2
 echo -e "============================================="
 echo -e "${green}      Input Domain${NC} "
 echo -e "============================================="
+sleep 2
 mkdir /root;
 mkdir /etc/v2ray
 mkdir /var/lib/premium-script;
 clear
+echo -e ""
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
 read -rp "    Enter your Domain/Host: " -e host
-echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-echo "$host" >> /etc/v2ray/domain
-echo "$host" >> /root/domain
-sleep 2
-clear
+ip=$(wget -qO- ipv4.icanhazip.com)
+host_ip=$(ping "${host}" -c 1 | sed '1{s/[^(]*(//;s/).*//;q}')
+if [[ ${host_ip} == "${ip}" ]]; then
+	echo -e "${green}HOST/DOMAIN MATCHED..INSTALLATION WILL CONTINUE${NC}"
+	echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
+        echo "$host" > /etc/v2ray/domain
+        echo "$host" > /root/domain
+	sleep 2
+	clear
+else
+	echo -e "${green}HOST/DOMAIN NOT MATCHED..INSTALLATION WILL TERMINATED${NC}"
+	echo -e ""
+        rm -f setup.sh
+        exit 1
+fi
 
 # Update & Upgrade
 apt update
@@ -52,35 +64,40 @@ echo -e "============================================="
 echo -e " ${green} Installing SSH & OPENVPN & WS ${NC}"
 echo -e "============================================="
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
-sleep 2
+
 #install ssr
 echo -e "============================================="
 echo -e " ${green}        Installing ssr${NC} "
 echo -e "============================================="
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
 sleep 2
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ssr.sh && chmod +x ssr.sh && screen -S ssr ./ssr.sh
+
 #install ss
 echo -e "============================================="
 echo -e " ${green}        Installing shadowsocksobfs${NC} "
 echo -e "============================================="
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
 sleep 2
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/sodosok.sh && chmod +x sodosok.sh && screen -S ss ./sodosok.sh
+
 #install wg
 echo -e "============================================="
 echo -e " ${green}        Installing WIREGUARD${NC} "
 echo -e "============================================="
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 sleep 2
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
+
 #install v2ray
 echo -e "============================================="
 echo -e " ${green}        Installing V2RAY${NC} "
 echo -e "============================================="
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
 sleep 2
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+
 #install ohp
 echo -e "============================================="
 echo -e " ${green}        Installing OHP${NC} "
 echo -e "============================================="
+sleep 2
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
 
 rm -f /root/ssh-vpn.sh
@@ -95,12 +112,10 @@ cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
 Documentation=JINGGO007
-
 [Service]
 Type=oneshot
 ExecStart=/bin/bash /etc/set.sh
 RemainAfterExit=yes
-
 [Install]
 WantedBy=multi-user.target
 EOF

@@ -12,7 +12,7 @@
 # INSTALLATION
 
 ```html
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/V1/main/setup.sh && chmod +x setup.sh && ./setup.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/v1/setup.sh && chmod +x setup.sh && ./setup.sh
   ```
  - You must have domain before install this script 
   

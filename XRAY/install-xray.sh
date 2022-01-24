@@ -47,8 +47,6 @@ EOF
 # // String
 ssl_path_crt="/etc/v2ray/v2ray.crt"
 ssl_path_key="/etc/v2ray/v2ray.key"
-Port1=8181
-Port2=8000
 uuid=$(cat /proc/sys/kernel/random/uuid)
 
 # // Vless Splice
@@ -56,7 +54,7 @@ cat > /etc/xray-mini/vless-splice.json << END
 {
   "inbounds": [
     {
-      "port": ${Port1},
+      "port": 8000,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -115,7 +113,7 @@ cat > /etc/xray-mini/vless-direct.json << END
 {
   "inbounds": [
     {
-      "port": ${Port2},
+      "port": 8000,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -176,9 +174,11 @@ systemctl enable xray-mini@vless-splice
 systemctl start xray-mini@vless-splice
 
 # // Downloading Menu
+wget -q -O /usr/bin/mxray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxray.sh"
 wget -q -O /usr/bin/add-xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xray.sh"
 wget -q -O /usr/bin/del-xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xray.sh"
 wget -q -O /usr/bin/renew-xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/renew-xray.sh"
+chmod +x /usr/bin/mxray
 chmod +x /usr/bin/add-xray
 chmod +x /usr/bin/del-xray
 chmod +x /usr/bin/renew-xray

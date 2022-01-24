@@ -22,7 +22,7 @@ chmod +x /usr/local/xray/xray-mini
 
 # // Make XRay Mini Root Folder
 mkdir -p /etc/xray-mini/
-chmod +x /etc/xray-mini/
+chmod 775 /etc/xray-mini/
 
 # // Installing XRay Mini Service
 cat > /etc/systemd/system/xray-mini@.service << EOF

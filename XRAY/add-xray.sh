@@ -31,8 +31,8 @@ sed -i '/#XRay$/a\### '"$user $exp"'\
 sed -i '/#XRay$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","flow": "xtls-rprx-splice","email": "'""$user""'"' /etc/xray-mini/vless-splice.json
 
-vless_direct="vless://${uuid}@${domain}:${vless1}?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=ctechdidik.xyz#$user"
-vless_splice="vless://${uuid}@${domain}:${vless1}?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=ctechdidik.xyz#$user"
+vless_direct="vless://${uuid}@${domain}:${vless1}?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-direct&sni=bug#$user"
+vless_splice="vless://${uuid}@${domain}:${vless1}?security=xtls&encryption=none&headerType=none&type=tcp&flow=xtls-rprx-splice&sni=bug#$user"
 
 # // Restarting Service
 systemctl stop xray-mini@vless-direct
@@ -60,6 +60,6 @@ echo -e "Link Direct    : ${vless_direct}"
 echo -e "================================="
 echo -e "LInk Splice    : ${vless_splice}"
 echo -e "================================="
-echo -e "Gantikan ctechdidik.xyz dengan BUG anda"
+echo -e "BUG anda"
 echo -e "================================="
 echo -e "Expired On     : $exp"

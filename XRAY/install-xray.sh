@@ -14,11 +14,11 @@ apt install nano -y
 apt install python3 -y
 
 # // Make Main Directory
-mkdir -p /usr/local/xray/
+mkdir -p /usr/local/jinggoz/
 
 # // Installation XRay Core
-wget -q -O /usr/local/xray/xray-mini "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/xray-mini" 
-chmod +x /usr/local/xray/xray-mini
+wget -q -O /usr/local/jinggoz/xray-mini "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/xray-mini"
+chmod +x /usr/local/jingoz/xray-mini
 
 # // Make XRay Mini Root Folder
 mkdir -p /etc/xray-mini/
@@ -30,16 +30,14 @@ cat > /etc/systemd/system/xray-mini@.service << EOF
 Description=XRay-Mini Service ( %i )
 Documentation=https://wildyproject.com https://github.com/XTLS/Xray-core
 After=network.target nss-lookup.target
-
 [Service]
 User=root
 NoNewPrivileges=true
-ExecStart=/usr/local/xray/xray-mini -config /etc/xray-mini/%i.json
+ExecStart=/usr/local/jinggoz/xray-mini -config /etc/xray-mini/%i.json
 Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000
 LimitNOFILE=1000000
-
 [Install]
 WantedBy=multi-user.target
 EOF
@@ -47,6 +45,7 @@ EOF
 # // String
 ssl_path_crt="/etc/v2ray/v2ray.crt"
 ssl_path_key="/etc/v2ray/v2ray.key"
+
 uuid=$(cat /proc/sys/kernel/random/uuid)
 
 # // Vless Splice

@@ -270,6 +270,7 @@ wget -O port-tr "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/p
 wget -O port-squid "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-squid.sh"
 wget -O port-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-ws.sh"
 wget -O port-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-vless.sh"
+wget -O port-xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xray.sh"
 wget -O wbmn "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/webmin.sh"
 wget -O xp "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/xp.sh"
 wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/checksystem.sh"
@@ -299,6 +300,7 @@ chmod +x port-tr
 chmod +x port-squid
 chmod +x port-ws
 chmod +x port-vless
+chmod +x port-xray
 chmod +x wbmn
 chmod +x xp
 chmod +x checksystem

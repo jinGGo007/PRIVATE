@@ -11,10 +11,11 @@ echo -e ""
 echo -e "     [1]  Change Port Stunnel4"
 echo -e "     [2]  Change Port OpenVPN"
 echo -e "     [3]  Change Port Wireguard"
-echo -e "     [4]  Change Port Xray Vmess"
-echo -e "     [5]  Change Port Xray Vless"
-echo -e "     [6]  Change Port Trojan Go"
+echo -e "     [4]  Change Port Vmess"
+echo -e "     [5]  Change Port Vless"
+echo -e "     [6]  Change Port Trojan"
 echo -e "     [7]  Change Port Squid"
+echo -e "     [8]  Change Port Xray"
 echo -e "     [x]  Exit"
 echo -e "======================================"
 echo -e "\e[1;31m"
@@ -31,16 +32,19 @@ port-ovpn
 port-wg
 ;;
 4)
-port-xvmess
+port-ws
 ;;
 5)
-port-xvless
+port-vless
 ;;
 6)
-port-xtrgo
+port-tr
 ;;
 7)
 port-squid
+;;
+8)
+port-xray
 ;;
 x)
 clear

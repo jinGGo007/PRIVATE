@@ -27,26 +27,27 @@ echo -e  " [ 1 ] SSH & OpenVPN"
 echo -e  " [ 2 ] Panel Wireguard" 
 echo -e  " [ 3 ] Panel SSR" 
 echo -e  " [ 4 ] Panel SS"
-echo -e  " [ 5 ] Panel XRAY VMESS" 
-echo -e  " [ 6 ] Panel XRAY VLESS" 
-echo -e  " [ 7 ] Panel Trojan Go" 
+echo -e  " [ 5 ] Panel VMESS" 
+echo -e  " [ 6 ] Panel VLESS" 
+echo -e  " [ 7 ] Panel XRAY"
+echo -e  " [ 8 ] Panel Trojan" 
 echo -e  "  "
 echo -e  " ═════════════════════════════════════════════════════════════════ "
 echo -e  " SYSTEM MENU "       
 echo -e  " ═════════════════════════════════════════════════════════════════ "                            
 echo -e  "  "
-echo -e  " [  8 ] Add/Change Subdomain Host For VPS"
-echo -e  " [  9 ] Change Port Of Some Service"
-echo -e  " [ 10 ] Webmin Menu"
-echo -e  " [ 11 ] Check Usage of VPS Ram"
-echo -e  " [ 12 ] Reboot VPS"
-echo -e  " [ 13 ] Speedtest VPS"
-echo -e  " [ 14 ] Displaying System Information"
-echo -e  " [ 15 ] Info Script"
-echo -e  " [ 16 ] Check System Error"
+echo -e  " [  9 ] Add/Change Subdomain Host For VPS"
+echo -e  " [ 10 ] Change Port Of Some Service"
+echo -e  " [ 11 ] Webmin Menu"
+echo -e  " [ 12 ] Check Usage of VPS Ram"
+echo -e  " [ 13 ] Reboot VPS"
+echo -e  " [ 14 ] Speedtest VPS"
+echo -e  " [ 15 ] Displaying System Information"
+echo -e  " [ 16 ] Info Script"
+echo -e  " [ 17 ] Check System Error"
 echo -e  "  "
 echo -e  " ═════════════════════════════════════════════════════════════════" 
-echo -e  "  [ 0 ] EXIT MENU "
+echo -e  " [  0 ] EXIT MENU "
 echo -e  " ═════════════════════════════════════════════════════════════════"
 echo -e "\e[1;31m"
 read -p  "     Please select an option :  " menu
@@ -65,39 +66,42 @@ echo -e "\e[0m"
    mss
    ;;
    5)
-   xmvmess
+   mvmess
    ;;
    6)
-   xmvless
+   mvless
    ;;
    7)
-   xmtrojan
+   mxray
    ;;
    8)
-   add-host
+   mtrojan
    ;;
    9)
-   change
+   add-host
    ;;
    10)
-   wbmn
+   change
    ;;
    11)
-   ram
+   wbmn
    ;;
    12)
-   reboot
+   ram
    ;;
    13)
-   speedtest
+   reboot
    ;;
    14)
-   info
+   speedtest
    ;;
    15)
-   about
+   info
    ;;
    16)
+   about
+   ;;
+   17)
    checksystem
    ;;
    0)

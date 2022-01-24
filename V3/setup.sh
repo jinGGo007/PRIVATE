@@ -21,7 +21,6 @@ echo -e "${green}      Input Domain${NC} "
 echo -e "============================================="
 sleep 2
 mkdir /etc/v2ray
-mkdir /etc/xray
 mkdir /var/lib/premium-script;
 mkdir /var/lib/crot-script;
 clear
@@ -32,9 +31,10 @@ ip=$(wget -qO- ipv4.icanhazip.com)
 host_ip=$(ping "${host}" -c 1 | sed '1{s/[^(]*(//;s/).*//;q}')
 if [[ ${host_ip} == "${ip}" ]]; then
 	echo -e "${green}HOST/DOMAIN MATCHED..INSTALLATION WILL CONTINUE${NC}"
-	echo "IP=$host" >> /var/lib/crot-script;
 	echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
+	echo "IP=$host" >> /var/lib/crot-script/ipvps.conf
     echo "$host" >> /etc/v2ray/domain
+    echo "$host" > /root/domain
 	sleep 2
 	clear
 else
@@ -88,12 +88,19 @@ echo -e "============================================="
 sleep 2
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/WG/wg.sh && chmod +x wg.sh && screen -S wg ./wg.sh
 
-#install Xray
+#install v2ray
 echo -e "============================================="
 echo -e " ${green}        Installing V2RAY${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/install-xray.sh && chmod +x install-xray.sh && screen -S xray ./install-xray.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V2RAY/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+
+#install v2ray
+echo -e "============================================="
+echo -e " ${green}        Installing XRAY${NC} "
+echo -e "============================================="
+sleep 2
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/install-xray.sh && chmod +x install-xray.sh && screen -S v2ray ./install-xray.sh
 
 #install ohp
 echo -e "============================================="
@@ -106,6 +113,7 @@ rm -f /root/ssh-vpn.sh
 rm -f /root/wg.sh
 rm -f /root/ss.sh
 rm -f /root/ssr.sh
+rm -f /root/ins-vt.sh
 rm -f /root/install-xray.sh
 rm -f /root/ohpserver.sh
 
@@ -150,11 +158,13 @@ echo "   - OPENVPN OHP             : 8089"  | tee -a log-install.txt
 echo "   - Shadowsocks-R           : 1443-1543"  | tee -a log-install.txt
 echo "   - SS-OBFS TLS             : 2443-2543"  | tee -a log-install.txt
 echo "   - SS-OBFS HTTP            : 3443-3543"  | tee -a log-install.txt
-echo "   - XRAY VMESS TCP          : 8443"  | tee -a log-install.txt
-echo "   - XRAY VMESS NONE TCP     : 80"  | tee -a log-install.txt
-echo "   - XRAY VLESS TCP          : 2083"  | tee -a log-install.txt
-echo "   - XRAY VLESS None TCP     : 8880"  | tee -a log-install.txt
-echo "   - Trojan GO               : 2087"  | tee -a log-install.txt
+echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
+echo "   - V2RAY Vmess None TLS    : 80"  | tee -a log-install.txt
+echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
+echo "   - V2RAY Vless None TLS    : 8880"  | tee -a log-install.txt
+echo "   - XRAY DIRECT             : 8000"  | tee -a log-install.txt
+echo "   - XRAY SPLICE             : 8181"  | tee -a log-install.txt
+echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
 echo "   - Timezone                : Asia/MALAYSIA (GMT +8)"  | tee -a log-install.txt

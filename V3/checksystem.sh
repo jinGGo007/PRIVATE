@@ -27,45 +27,45 @@ echo -e " DropBear          : DropBear Service is "$green"running"$NC""
 else                                                                                    
 echo -e " DropBear          : DropBear Service is "$red"not running (Error)"$NC""        
 fi                                                                                      
-status="$(systemctl show xray@vmessnone.service --no-page)"                                 
+status="$(systemctl show v2ray@none.service --no-page)"                                 
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " Xray Vmess Non TLS: Xray Vmess Non TLS Service is "$green"running"$NC""              
+echo -e " V2ray Non TLS     : V2ray Non TLS Service is "$green"running"$NC""              
 else                                                                                    
-echo -e " Xray Vmess Non TLS: Xray Vmess Non TLS Service is "$red"not running (Error)"$NC""    
+echo -e " V2ray Non TLS     : V2ray Non TLS Service is "$red"not running (Error)"$NC""    
 fi                                                                                      
-status="$(systemctl show xray@vmesstls.service --no-page)"                                      
+status="$(systemctl show v2ray.service --no-page)"                                      
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " Xray Vmess TLS    : Xray Vmess TLS Service is "$green"running"$NC""                
+echo -e " V2ray TLS         : V2ray TLS Service is "$green"running"$NC""                
 else                                                                                    
-echo -e " Xray Vmess TLS    : Xray Vmess TLS Service is "$red"not running (Error)"$NC""      
+echo -e " V2ray TLS         : V2ray TLS Service is "$red"not running (Error)"$NC""      
 fi
-status="$(systemctl show xray@vlesstls.service --no-page)"                                      
+status="$(systemctl show v2ray@vless.service --no-page)"                                      
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " Xray Vless TLS    : Xray Vless TLS Service is "$green"running"$NC""                
+echo -e " Vless TLS         : Vless TLS Service is "$green"running"$NC""                
 else                                                                                    
-echo -e " Xray Vless TLS    : Xray Vless TLS Service is "$red"not running (Error)"$NC""      
+echo -e " Vless TLS         : Vless TLS Service is "$red"not running (Error)"$NC""      
 fi
-status="$(systemctl show xray@vlessnone.service --no-page)"                                      
+status="$(systemctl show v2ray@vnone.service --no-page)"                                      
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " Xray Vless Non TLS: Xray Vless Non TLS Service is "$green"running"$NC""                
+echo -e " Vless Non TLS     : Vless Non TLS Service is "$green"running"$NC""                
 else                                                                                    
-echo -e " Xray Vless Non TLS: Xray Vless Non TLS Service is "$red"not running (Error)"$NC""      
+echo -e " Vless Non TLS     : Vless Non TLS Service is "$red"not running (Error)"$NC""      
 fi
-status="$(systemctl show trojan-go.service --no-page)"                                      
+status="$(systemctl show trojan --no-page)"                                      
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " Trojan Go         : Trojan Go Service is "$green"running"$NC""                
+echo -e " Trojan            : Trojan Service is "$green"running"$NC""                
 else                                                                                    
-echo -e " Trojan Go         : Trojan Go Service is "$red"not running (Error)"$NC""      
+echo -e " Trojan            : Trojan Service is "$red"not running (Error)"$NC""      
 fi
 status="$(systemctl show squid.service --no-page)"                                      
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
@@ -139,4 +139,19 @@ echo -e " OVPN WS           : OVPN WS Service is "$green"running"$NC""
 else                                                                                    
 echo -e " OVPN WS           : OVPN WS Service is "$red"not running (Error)"$NC""        
 fi
-
+status="$(systemctl xray-mini@vless-direct --no-page)"                                   
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
+if [ "${status_text}" == "active" ]                                                     
+then                                                                                    
+echo -e " XRAY VLESS DIRECT : XRAY VLESS DIRECT Service is "$green"running"$NC""                  
+else                                                                                    
+echo -e " XRAY VLESS DIRECT : XRAY VLESS DIRECT Service is "$red"not running (Error)"$NC""        
+fi
+status="$(systemctl xray-mini@vless-splice --no-page)"                                   
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
+if [ "${status_text}" == "active" ]                                                     
+then                                                                                    
+echo -e " XRAY VLESS SPLICE : XRAY VLESS SPLICE Service is "$green"running"$NC""                  
+else                                                                                    
+echo -e " XRAY VLESS SPLICE : XRAY VLESS SPLICES Service is "$red"not running (Error)"$NC""        
+fi

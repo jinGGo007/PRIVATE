@@ -15,7 +15,8 @@ echo -e "     [4]  Change Port Vmess"
 echo -e "     [5]  Change Port Vless"
 echo -e "     [6]  Change Port Trojan"
 echo -e "     [7]  Change Port Squid"
-echo -e "     [8]  Change Port Xray"
+echo -e "     [8]  Change Port Xray Vmess"
+echo -e "     [9]  Change Port Xray Vless"
 echo -e "     [x]  Exit"
 echo -e "======================================"
 echo -e "\e[1;31m"
@@ -44,8 +45,10 @@ port-tr
 port-squid
 ;;
 8)
-port-xray
+port-xvmess
 ;;
+9)
+port-xvless
 x)
 clear
 menu

@@ -139,19 +139,35 @@ echo -e " OVPN WS           : OVPN WS Service is "$green"running"$NC""
 else                                                                                    
 echo -e " OVPN WS           : OVPN WS Service is "$red"not running (Error)"$NC""        
 fi
-status="$(systemctl show xray-mini@vless-direct --no-page)"                                   
+status="$(systemctl show xray@vmesstls.service --no-page)"                                   
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " XRAY VLESS DIRECT : XRAY VLESS DIRECT Service is "$green"running"$NC""                  
+echo -e " XRAY VMESS TCP    : XRAY VMESS TCP Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e " XRAY VLESS DIRECT : XRAY VLESS DIRECT Service is "$red"not running (Error)"$NC""        
+echo -e " XRAY VMESS TCP    : XRAY VMESS TCP Service is "$red"not running (Error)"$NC""        
+fi 
+status="$(systemctl show xray@vmessnone.service --no-page)"                                   
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
+if [ "${status_text}" == "active" ]                                                     
+then                                                                                    
+echo -e " XRAY VMESS NON TCP : XRAY VMESS NON TCP Service is "$green"running"$NC""                  
+else                                                                                    
+echo -e " XRAY VMESS NON TCP : XRAY VMESS NON TCP Service is "$red"not running (Error)"$NC""        
 fi
-status="$(systemctl show xray-mini@vless-splice --no-page)"                                   
+status="$(systemctl show xray@vlesstls.service --no-page)"                                   
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e " XRAY VLESS SPLICE : XRAY VLESS SPLICE Service is "$green"running"$NC""                  
+echo -e " XRAY VLESS TLS     : XRAY VLESS TLS Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e " XRAY VLESS SPLICE : XRAY VLESS SPLICE Service is "$red"not running (Error)"$NC""        
+echo -e " XRAY VLESS TLS     : XRAY VLESS TLS Service is "$red"not running (Error)"$NC""        
+fi
+status="$(systemctl show xray@vlessnone.service --no-page)"                                   
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
+if [ "${status_text}" == "active" ]                                                     
+then                                                                                    
+echo -e " XRAY VLESS NON TLS : XRAY VLESS NON TLS Service is "$green"running"$NC""                  
+else                                                                                    
+echo -e " XRAY VLESS NON TLS : XRAY VLESS NON TLS Service is "$red"not running (Error)"$NC""        
 fi

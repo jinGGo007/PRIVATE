@@ -162,8 +162,10 @@ echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
 echo "   - V2RAY Vmess None TLS    : 80"  | tee -a log-install.txt
 echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
 echo "   - V2RAY Vless None TLS    : 8880"  | tee -a log-install.txt
-echo "   - XRAY DIRECT             : 8000"  | tee -a log-install.txt
-echo "   - XRAY SPLICE             : 8000"  | tee -a log-install.txt
+echo "   - XRAY VMESS TCP          : 6363"  | tee -a log-install.txt
+echo "   - XRAY VMESS NONE TCP     : 6464"  | tee -a log-install.txt
+echo "   - XRAY VLESS TCP          : 6565"  | tee -a log-install.txt
+echo "   - XRAY VLESS None T       : 6666"  | tee -a log-install.txt
 echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt

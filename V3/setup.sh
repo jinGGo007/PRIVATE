@@ -21,6 +21,7 @@ echo -e "${green}      Input Domain${NC} "
 echo -e "============================================="
 sleep 2
 mkdir /etc/v2ray
+mkdir /etc/xray
 mkdir /var/lib/premium-script;
 mkdir /var/lib/crot-script;
 clear
@@ -33,7 +34,7 @@ if [[ ${host_ip} == "${ip}" ]]; then
 	echo -e "${green}HOST/DOMAIN MATCHED..INSTALLATION WILL CONTINUE${NC}"
 	echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
 	echo "IP=$host" >> /var/lib/crot-script/ipvps.conf
-    echo "$host" >> /etc/v2ray/domain
+	echo "$host" >> /etc/v2ray/domain
     echo "$host" > /root/domain
 	sleep 2
 	clear

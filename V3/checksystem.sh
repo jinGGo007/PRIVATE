@@ -153,5 +153,5 @@ if [ "${status_text}" == "active" ]
 then                                                                                    
 echo -e " XRAY VLESS SPLICE : XRAY VLESS SPLICE Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e " XRAY VLESS SPLICE : XRAY VLESS SPLICES Service is "$red"not running (Error)"$NC""        
+echo -e " XRAY VLESS SPLICE : XRAY VLESS SPLICE Service is "$red"not running (Error)"$NC""        
 fi

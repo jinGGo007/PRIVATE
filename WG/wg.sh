@@ -32,11 +32,11 @@ SERVER_PUB_NIC=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 	if [[ $OS == 'ubuntu' ]]; then
 	apt install -y wireguard
 elif [[ $OS == 'debian' ]]; then
-	echo "deb http://deb.debian.org/debian/ unstable main" >/etc/apt/sources.list.d/unstable.list
-	printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' >/etc/apt/preferences.d/limit-unstable
+	apt install sudo lsb-release -y
+	echo "deb http://deb.debian.org/debian $(lsb_release -sc)-backports main" |  tee /etc/apt/sources.list.d/backports.list
 	apt update
-	apt install -y wireguard-tools iptables iptables-persistent
-	apt install -y linux-headers-$(uname -r)
+	apt -y buster-backports install wireguard wireguard-tools wireguard-dkms linux-headers-$(uname -r)
+	apt install openresolv
 elif [[ ${OS} == 'centos' ]]; then
 	curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
 	yum -y update

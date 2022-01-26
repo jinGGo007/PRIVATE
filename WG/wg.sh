@@ -39,7 +39,6 @@ elif [[ $OS == 'debian' ]]; then
 	apt update
 	apt install -y wireguard-tools iptables iptables-persistent
 	apt install -y linux-headers-$(uname -r)
-	apt -y --no-install-recommends install net-tools iproute2 openresolv dnsutils linux-headers-$(uname -r)
 elif [[ ${OS} == 'centos' ]]; then
 	curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
 	yum -y update

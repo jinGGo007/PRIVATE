@@ -38,7 +38,7 @@ elif [[ ${OS} == 'debian' ]]; then
 			apt-get update
 			apt-get install -y iptables resolvconf qrencode
 			apt-get install -y -t buster-backports wireguard
-			apt-get install wireguard-dkms wireguard-tools linux-headers-$(uname -r)
+			apt-get install -y wireguard-dkms wireguard-tools linux-headers-$(uname -r)
 		else
 		echo "deb http://deb.debian.org/debian/ unstable main" >/etc/apt/sources.list.d/unstable.list
 		printf 'Package: *\nPin: release a=unstable\nPin-Priority: 90\n' >/etc/apt/preferences.d/limit-unstable

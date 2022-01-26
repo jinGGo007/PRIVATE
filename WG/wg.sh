@@ -4,6 +4,14 @@
 # Centos 7 & 8 64bit
 # ==================================================
 
+apt update
+apt install resolvconf 
+systemctl start resolvconf.service
+systemctl enable resolvconf.service 
+echo 'nameserver 8.8.8.8' > /etc/resolvconf/resolv.conf.d/head 
+systemctl start resolvconf.service 
+echo 'nameserver 8.8.8.8' > /etc/resolv.conf
+clear
 
 # Check OS version
 if [[ -e /etc/debian_version ]]; then
@@ -34,7 +42,7 @@ SERVER_PUB_NIC=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 elif [[ $OS == 'debian' ]]; then
 	echo 'deb http://ftp.debian.org/debian buster-backports main' | tee /etc/apt/sources.list.d/buster-backports.list
 	apt update
-        apt install -y wireguard
+        apt -y buster-backports install wireguard wireguard-tools wireguard-dkms linux-headers-$(uname -r)
 	
 elif [[ ${OS} == 'centos' ]]; then
 	curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo

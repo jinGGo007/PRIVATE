@@ -35,7 +35,9 @@ elif [[ $OS == 'debian' ]]; then
 	apt install sudo lsb-release -y
 	echo "deb http://deb.debian.org/debian $(lsb_release -sc)-backports main" |  tee /etc/apt/sources.list.d/backports.list
 	apt update
-	apt install -y wireguard
+	apt -y buster-backports install wireguard wireguard-tools wireguard-dkms linux-headers-$(uname -r)
+	apt install -y openresolv
+	
 elif [[ ${OS} == 'centos' ]]; then
 	curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo
 	yum -y update

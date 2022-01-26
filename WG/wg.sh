@@ -40,6 +40,7 @@ elif [[ ${OS} == 'debian' ]]; then
 		apt update
 		apt-get install -y iptables resolvconf qrencode
 		apt-get install -y -t buster-backports wireguard
+		apt-get install wireguard-dkms wireguard-tools linux-headers-$(uname -r)
 
 elif [[ ${OS} == 'centos' ]]; then
 	curl -Lo /etc/yum.repos.d/wireguard.repo https://copr.fedorainfracloud.org/coprs/jdoss/wireguard/repo/epel-7/jdoss-wireguard-epel-7.repo

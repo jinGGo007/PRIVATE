@@ -246,11 +246,11 @@ echo -e " ${green} DOWNLOAD MENU SCRIPT ${NC}"
 echo -e "============================================="
 sleep 2
 cd /usr/bin
-wget -O menu "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/menu.sh"
+wget -O menu "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/menu.sh"
 wget -O add-host "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/about.sh"
-wget -O usernew "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/trial.sh"
+wget -O usernew "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/hapus.sh"
 wget -O member "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/member.sh"
 wget -O delete "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/delete.sh"
@@ -263,7 +263,7 @@ wget -O renew "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/ren
 wget -O autokill "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/autokill.sh"
 wget -O ceklim "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/ceklim.sh"
 wget -O tendang "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/tendang.sh"
-wget -O change "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/change.sh"
+wget -O change "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/change.sh"
 wget -O port-ovpn "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-ovpn.sh"
 wget -O port-ssl "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-ssl.sh"
 wget -O port-tr "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-tr.sh"
@@ -272,7 +272,7 @@ wget -O port-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/p
 wget -O port-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-vless.sh"
 wget -O wbmn "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/webmin.sh"
 wget -O xp "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/xp.sh"
-wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/checksystem.sh"
+wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/checksystem.sh"
 chmod +x menu
 chmod +x add-host
 chmod +x usernew

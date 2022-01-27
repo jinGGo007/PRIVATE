@@ -22,7 +22,7 @@ Port_OHP='8089';
 
 #Installing ohp Server
 cd 
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/OHP/ohp.sh && chmod +x ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 
 #Buat File OpenVPN TCP OHP
 cat > /etc/openvpn/tcp-ohp.ovpn <<END

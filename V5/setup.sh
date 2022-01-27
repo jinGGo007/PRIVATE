@@ -71,8 +71,6 @@ if [[ ${host_ip} == "${ip}" ]]; then
 	mkdir -p /var/log/xray/
 	mkdir -p /var/log/v2ray/
 	mkdir /var/lib/premium-script;
-	touch /etc/rare/xray/clients.txt
-	touch /etc/rare/v2ray/clients.txt
 	echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
     echo "$host" >> /etc/v2ray/domain
     echo "$host" >> /etc/rare/xray/domain

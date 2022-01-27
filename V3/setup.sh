@@ -80,7 +80,7 @@ echo -e "============================================="
 echo -e " ${green} Installing SSH & OPENVPN & WS ${NC}"
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V2/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 sleep 2
 clear
 
@@ -89,7 +89,7 @@ echo -e "============================================="
 echo -e " ${green}        Installing V2RAY${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V2RAY/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
 sleep 2
 clear
 
@@ -98,7 +98,7 @@ echo -e "============================================="
 echo -e " ${green}        Installing OHP${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/OHP/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
 sleep 2
 clear
 

@@ -51,6 +51,9 @@ echo -e "${green} DOMAIN INPUT${NC} "
 echo -e "============================================="
 sleep 2
 clear
+mkdir /etc/rare
+mkdir /etc/v2ray
+mkdir /var/lib/premium-script;
 echo -e ""
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
 read -rp "    Enter your Domain/Host: " -e host
@@ -59,19 +62,6 @@ host_ip=$(ping "${host}" -c 1 | sed '1{s/[^(]*(//;s/).*//;q}')
 if [[ ${host_ip} == "${ip}" ]]; then
 	echo -e ""
 	echo -e "${green}HOST/DOMAIN MATCHED..INSTALLATION WILL CONTINUE${NC}"
-   	mkdir -p /etc/v2ray/domain
-	mkdir -p /etc/rare
-	mkdir -p /etc/rare/xray
-	mkdir -p /etc/rare/v2ray
-	mkdir -p /etc/rare/tls
-	mkdir -p /etc/rare/config-url
-	mkdir -p /etc/rare/config-user
-	mkdir -p /etc/rare/xray/conf
-	mkdir -p /etc/rare/v2ray/conf
-	mkdir -p /etc/systemd/system/
-	mkdir -p /var/log/xray/
-	mkdir -p /var/log/v2ray/
-	mkdir /var/lib/premium-script;
 	echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
     echo "$host" >> /etc/v2ray/domain
     echo "$host" >> /etc/rare/xray/domain
@@ -119,7 +109,7 @@ echo -e "============================================="
 echo -e " ${green} INSTALLING V2RAY${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/install-v2ray.sh && chmod +x install-v2ray.sh && screen -S xray ./install-v2ray.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/install-xray.sh && chmod +x install-v2ray.sh && screen -S xray ./install-v2ray.sh
 sleep 2
 clear
 

@@ -11,20 +11,20 @@ red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(wget -qO- icanhazip.com);
 echo "Checking Vps"
 sleep 2
 clear
 
 #Welcome Note
 echo -e "============================================="
-echo -e " ${green} Welcome To JINGGO007 Script${NC}"
+echo -e " ${green} WELCOME TO JINGGO SCRIPT${NC}"
 echo -e "============================================="
 sleep 2
 
 #Install Update
 echo -e "============================================="
-echo -e " ${green} Update & Upgrade Process${NC}"
+echo -e " ${green} UPDATE && UPGRADE PROCESS${NC}"
 echo -e "============================================="
 apt -y update 
 apt install -y bzip2 gzip coreutils screen curl
@@ -33,7 +33,7 @@ clear
 
 # Disable IPv6
 echo -e "============================================="
-echo -e " ${green} Disable_ipv6${NC}"
+echo -e " ${green} DISABLE IPV6${NC}"
 echo -e "============================================="
 sleep 2
 sysctl -w net.ipv6.conf.all.disable_ipv6=1
@@ -47,7 +47,7 @@ clear
 
 # Subdomain Settings
 echo -e "============================================="
-echo -e "${green}      Input Domain${NC} "
+echo -e "${green} DOMAIN INPUT${NC} "
 echo -e "============================================="
 sleep 2
 mkdir /etc/v2ray
@@ -56,7 +56,7 @@ clear
 echo -e ""
 echo -e "${green}MASUKKAN DOMAIN ANDA YANG TELAH DI POINT KE IP ANDA${NC}"
 read -rp "    Enter your Domain/Host: " -e host
-ip=$(wget -qO- ipinfo.io/ip)
+ip=$(wget -qO- icanhazip.com)
 host_ip=$(ping "${host}" -c 1 | sed '1{s/[^(]*(//;s/).*//;q}')
 if [[ ${host_ip} == "${ip}" ]]; then
 	echo -e ""
@@ -77,7 +77,7 @@ sleep 1
 
 #install ssh ovpn
 echo -e "============================================="
-echo -e " ${green} Installing SSH & OPENVPN & WS ${NC}"
+echo -e " ${green} INSTALLING SSH && OVPN && WS ${NC}"
 echo -e "============================================="
 sleep 2
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
@@ -86,7 +86,7 @@ clear
 
 #install v2ray
 echo -e "============================================="
-echo -e " ${green}        Installing V2RAY${NC} "
+echo -e " ${green} INSTALLING V2RAY${NC} "
 echo -e "============================================="
 sleep 2
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V2RAY/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
@@ -95,7 +95,7 @@ clear
 
 #install ohp
 echo -e "============================================="
-echo -e " ${green}        Installing OHP${NC} "
+echo -e " ${green} INSTALLING OHP${NC} "
 echo -e "============================================="
 sleep 2
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/OHP/ohpserver.sh && chmod +x ohpserver.sh && ./ohpserver.sh
@@ -126,7 +126,7 @@ history -c
 echo "1.2" > /home/ver
 clear
 echo " "
-echo "Installation Completed!!"
+echo "INSTALLATION COMPLETE!!"
 echo " "
 echo "=================================-Autoscript Premium-===========================" | tee -a log-install.txt
 echo "" | tee -a log-install.txt

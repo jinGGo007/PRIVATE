@@ -2,7 +2,7 @@
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
-MYIP=$(wget -qO- icanhazip.com));
+MYIP=$(wget -qO- icanhazip.com);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 source /etc/os-release
@@ -240,7 +240,6 @@ netfilter-persistent save
 netfilter-persistent reload
 
 # download script menu
-sleep 2
 echo -e "============================================="
 echo -e " ${green} DOWNLOAD MENU SCRIPT ${NC}"
 echo -e "============================================="
@@ -294,6 +293,7 @@ chmod +x clear-log
 chmod +x change
 chmod +x port-ovpn
 chmod +x port-ssl
+chmod +x port-wg
 chmod +x port-tr
 chmod +x port-squid
 chmod +x port-ws

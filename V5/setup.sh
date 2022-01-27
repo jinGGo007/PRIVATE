@@ -52,6 +52,7 @@ echo -e "============================================="
 sleep 2
 clear
 mkdir /etc/rare
+mkdir /etc/rare/xray
 mkdir /etc/v2ray
 mkdir /var/lib/premium-script;
 echo -e ""

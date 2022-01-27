@@ -27,7 +27,7 @@ echo -e " DropBear          : DropBear Service is "$green"running"$NC""
 else                                                                                    
 echo -e " DropBear          : DropBear Service is "$red"not running (Error)"$NC""        
 fi                                                                                      
-status="$(systemctl show v2ray@none.service --no-page)"                                 
+status="$(systemctl show v2ray.service --no-page)"                                 
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
@@ -35,7 +35,7 @@ echo -e " V2ray             : V2ray Service is "$green"running"$NC""
 else                                                                                    
 echo -e " V2ray             : V2ray Service is "$red"not running (Error)"$NC""    
 fi                                                                                      
-status="$(systemctl show v2ray.service --no-page)"                                      
+status="$(systemctl show xray.service --no-page)"                                      
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    

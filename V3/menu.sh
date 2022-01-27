@@ -11,13 +11,25 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 fi
 clear
 
-MYIP=$(wget -qO- ifconfig.co);
+MYIP=$(wget -qO- icanhazip.com);
 echo "Checking VPS"
 clear
 
+echo -e " "
+ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
+CITY=$(curl -s ipinfo.io/city )
+WKT=$(curl -s ipinfo.io/timezone )
+IPVPS=$(curl -s ipinfo.io/ip )
+DOMAIN=$(cat /etc/v2ray/domain)
 
-echo -e  "          AUTOSCRIPT LITE VERSION MODDED BY JINGGO007" | lolcat
 
+echo -e  "           AUTOSCRIPT LITE VERSION MODDED BY JINGGO007" | lolcat
+echo -e  " "
+echo -e  " $op \e[032;1mIsp Name    :\e[0m$bd $ISP"
+echo -e  " $op \e[032;1mIp Vps      :\e[0m$bd $IPVPS"
+echo -e  " $op \e[032;1mCity        :\e[0m$bd $CITY"
+echo -e  " $op \e[032;1mTime        :\e[0m$bd $WKT "
+echo -e  " $op \e[032;1mDOMAIN      :\e[0m $DOMAIN"
 echo -e  " "
 echo -e  " ═════════════════════════════════════════════════════════════════ "
 echo -e  " MAIN MENU "                                       

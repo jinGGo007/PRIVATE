@@ -2,7 +2,7 @@
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
-MYIP=$(wget -qO- ipinfo.io/ip);
+MYIP=$(wget -qO- icanhazip.com));
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 NET=$(ip -o $ANU -4 route show to default | awk '{print $5}');
 source /etc/os-release
@@ -240,7 +240,7 @@ netfilter-persistent save
 netfilter-persistent reload
 
 # download script menu
-sleep
+sleep 2
 echo -e "============================================="
 echo -e " ${green} DOWNLOAD MENU SCRIPT ${NC}"
 echo -e "============================================="
@@ -249,8 +249,8 @@ cd /usr/bin
 wget -O menu "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/menu.sh"
 wget -O add-host "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/about.sh"
-wget -O usernew "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/trial.sh"
+wget -O usernew "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/usernew.sh"
+wget -O trial "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/hapus.sh"
 wget -O member "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/member.sh"
 wget -O delete "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/delete.sh"
@@ -271,7 +271,7 @@ wget -O port-squid "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MEN
 wget -O port-ws "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-ws.sh"
 wget -O port-vless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/port-vless.sh"
 wget -O wbmn "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/xp.sh"
+wget -O xp "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/xp.sh"
 wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V3/checksystem.sh"
 chmod +x menu
 chmod +x add-host

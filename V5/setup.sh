@@ -59,7 +59,8 @@ host_ip=$(ping "${host}" -c 1 | sed '1{s/[^(]*(//;s/).*//;q}')
 if [[ ${host_ip} == "${ip}" ]]; then
 	echo -e ""
 	echo -e "${green}HOST/DOMAIN MATCHED..INSTALLATION WILL CONTINUE${NC}"
-    mkdir -p /etc/rare
+   	mkdir -p /etc/v2ray/domain
+	mkdir -p /etc/rare
 	mkdir -p /etc/rare/xray
 	mkdir -p /etc/rare/v2ray
 	mkdir -p /etc/rare/tls
@@ -100,7 +101,7 @@ echo -e "============================================="
 echo -e " ${green} INSTALLING TROJAN GFW AND CERT${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/trgfw.sh && chmod +x trgfw.sh && screen -S trgfw .trgfw.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/trgfw.sh && chmod +x trgfw.sh && screen -S trgfw ./trgfw.sh
 sleep 2
 clear
 
@@ -109,7 +110,7 @@ echo -e "============================================="
 echo -e " ${green} INSTALLING XRAY${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/install-xray.sh && chmod +x install-xray.sh && screen -S xray .install-xray.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/install-xray.sh && chmod +x install-xray.sh && screen -S xray ./install-xray.sh
 sleep 2
 clear
 
@@ -118,7 +119,7 @@ echo -e "============================================="
 echo -e " ${green} INSTALLING V2RAY${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/install-xray.sh && chmod +x install-v2ray.sh && screen -S xray .install-v2ray.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/install-v2ray.sh && chmod +x install-v2ray.sh && screen -S xray ./install-v2ray.sh
 sleep 2
 clear
 

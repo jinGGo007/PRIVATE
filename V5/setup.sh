@@ -110,7 +110,7 @@ echo -e "============================================="
 echo -e " ${green} INSTALLING V2RAY${NC} "
 echo -e "============================================="
 sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/install-xray.sh && chmod +x install-v2ray.sh && screen -S xray ./install-v2ray.sh
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/install-v2ray.sh && chmod +x install-v2ray.sh && screen -S xray ./install-v2ray.sh
 sleep 2
 clear
 

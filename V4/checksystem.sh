@@ -151,25 +151,33 @@ status="$(systemctl show xray@vlessnone.service --no-page)"
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e "  XRAY VLESS None TCP :  XRAY VLESS None TCP Service is "$green"running"$NC""                  
+echo -e " XRAY VLESS None TCP  :  XRAY VLESS None TCP Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e "  XRAY VLESS None TCP :  XRAY VLESS None TCP Service is "$red"not running (Error)"$NC""        
+echo -e " XRAY VLESS None TCP  :  XRAY VLESS None TCP Service is "$red"not running (Error)"$NC""        
 fi    
 status="$(systemctl show xray@vmessnone.service --no-page)"                                   
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e "  XRAY VMESS NONE TCP :  XRAY VMESS NONE TCP Service is "$green"running"$NC""                  
+echo -e " XRAY VMESS NONE TCP  :  XRAY VMESS NONE TCP Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e "  XRAY VMESS NONE TCP :  XRAY VMESS NONE TCP Service is "$red"not running (Error)"$NC""        
+echo -e " XRAY VMESS NONE TCP  :  XRAY VMESS NONE TCP Service is "$red"not running (Error)"$NC""        
 fi 
 status="$(systemctl show xray@vmesstls.service --no-page)"                                   
 status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
 if [ "${status_text}" == "active" ]                                                     
 then                                                                                    
-echo -e "  XRAY VMESS TCP :  XRAY VMESS TCP Service is "$green"running"$NC""                  
+echo -e " XRAY VMESS TCP       :  XRAY VMESS TCP Service is "$green"running"$NC""                  
 else                                                                                    
-echo -e "  XRAY VMESS TCP :  XRAY VMESS TCP Service is "$red"not running (Error)"$NC""        
+echo -e " XRAY VMESS TCP       :  XRAY VMESS TCP Service is "$red"not running (Error)"$NC""        
+fi 
+status="$(systemctl show trojan-go --no-page)"                                   
+status_text=$(echo "${status}" | grep 'ActiveState=' | cut -f2 -d=)                     
+if [ "${status_text}" == "active" ]                                                     
+then                                                                                    
+echo -e " TROJAN GO            :  TROJAN GO Service is "$green"running"$NC""                  
+else                                                                                    
+echo -e " TROJAN GOP           :  TROJAN GO Service is "$red"not running (Error)"$NC""        
 fi 
 echo ""
 read -n 1 -s -r -p "Press any key to back on menu"

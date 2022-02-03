@@ -35,7 +35,7 @@ clear
 echo start
 sleep 0.5
 source /var/lib/premium-script/ipvps.conf
-domain=$IP
+domain=$(cat /etc/v2ray/domain)
 systemctl stop xray
 systemctl stop xray@none
 systemctl stop xray@vless

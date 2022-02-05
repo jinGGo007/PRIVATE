@@ -50,65 +50,6 @@ Port1=8181
 Port2=6769
 uuid=$(cat /proc/sys/kernel/random/uuid)
 
-# // Vless Splice
-cat > /etc/xray-mini/vless-splice.json << END
-{
-  "inbounds": [
-    {
-      "port": ${Port2},
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "${uuid}",
-            "flow": "xtls-rprx-splice"
-#XRay
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": [
-          {
-            "dest": 60000,
-            "alpn": "",
-            "xver": 1
-          },
-          {
-            "dest": 60001,
-            "alpn": "h2",
-            "xver": 1
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "xtls",
-        "xtlsSettings": {
-          "minVersion": "1.2",
-          "certificates": [
-            {
-              "certificateFile": "${ssl_path_crt}",
-              "keyFile": "${ssl_path_key}"
-            }
-          ]
-        }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom"
-    }
-  ]
-}
-END
-
 # // Vless Direct
 cat > /etc/xray-mini/vless-direct.json << END
 {
@@ -171,8 +112,6 @@ END
 # // Enable & Start Service
 systemctl enable xray-mini@vless-direct
 systemctl start xray-mini@vless-direct
-systemctl enable xray-mini@vless-splice
-systemctl start xray-mini@vless-splice
 
 # // Downloading Menu
 cd /usr/bin

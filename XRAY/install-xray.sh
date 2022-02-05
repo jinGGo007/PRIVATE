@@ -55,7 +55,7 @@ cat > /etc/xray-mini/vless-splice.json << END
 {
   "inbounds": [
     {
-      "port": ${Port1},
+      "port": ${Port2},
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -175,15 +175,17 @@ systemctl enable xray-mini@vless-splice
 systemctl start xray-mini@vless-splice
 
 # // Downloading Menu
-wget -q -O /usr/bin/mxray "https://raw.githubusercontent.com/PRIVATE/main/XRAY/mxray.sh"
-wget -q -O /usr/bin/add-xray "https://raw.githubusercontent.com/PRIVATE/main/XRAY/add-xray.sh"
-wget -q -O /usr/bin/del-xray "https://raw.githubusercontent.com/PRIVATE/main/XRAY/del-xray.sh"
-wget -q -O /usr/bin/renew-xray "https://raw.githubusercontent.com/PRIVATE/main/XRAY/renew-xray.sh"
-wget -q -O /usr/bin/port-xray "https://raw.githubusercontent.com/PRIVATE/main/XRAY/port-xray.sh"
-chmod +x /usr/bin/mxray
-chmod +x /usr/bin/add-xray
-chmod +x /usr/bin/del-xray
-chmod +x /usr/bin/renew-xray
-chmod +x /usr/bin/port-xray
+cd /usr/bin
+wget -O mxray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxray.sh"
+wget -O add-xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xray.sh"
+wget -O del-xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xray.sh"
+wget -O renew-xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/renew-xray.sh"
+wget -O port-xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xray.sh"
+chmod +x mxray
+chmod +x add-xray
+chmod +x del-xray
+chmod +x renew-xray
+chmod +x port-xray
+cd
 # // Remove Not Used Files
 rm -f install-xray.sh

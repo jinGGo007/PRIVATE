@@ -13,11 +13,11 @@ apt install nano -y
 apt install python3 -y
 
 # // Make Main Directory
-mkdir -p /usr/local/xray/
+mkdir -p /usr/local/jinggo/
 
 # // Installation XRay Core
-wget -q -O /usr/local/xray/xray-mini "https://raw.githubusercontent.com/jinGGo007/PRIVATE/XRAY/xray-mini" 
-chmod +x /usr/local/xray/xray-mini
+wget -q -O /usr/local/jinggo/xray-mini "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/xray-mini" 
+chmod +x /usr/local/jinggo/xray-mini
 
 # // Make XRay Mini Root Folder
 mkdir -p /etc/xray-mini/
@@ -33,7 +33,7 @@ After=network.target nss-lookup.target
 [Service]
 User=root
 NoNewPrivileges=true
-ExecStart=/usr/local/xray/xray-mini -config /etc/xray-mini/%i.json
+ExecStart=/usr/local/jinggo/xray-mini -config /etc/xray-mini/%i.json
 Restart=on-failure
 RestartPreventExitStatus=23
 LimitNPROC=10000

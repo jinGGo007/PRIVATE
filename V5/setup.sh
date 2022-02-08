@@ -102,16 +102,6 @@ wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V5/ssh-vpn.sh && c
 sleep 2
 clear
 
-
-#install v2ray
-echo -e "============================================="
-echo -e " ${green} INSTALLING V2RAY${NC} "
-echo -e "============================================="
-sleep 2
-wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V2RAY/ins-vt.sh && chmod +x ins-vt.sh && screen -S v2ray ./ins-vt.sh
-sleep 2
-clear
-
 #install Xray
 echo -e "============================================="
 echo -e " ${green} INSTALLING XRAY${NC} "
@@ -171,11 +161,6 @@ echo "   - Nginx                   : 81"  | tee -a log-install.txt
 echo "   - SSH WS/OVPN WS          : 2082, 2095"  | tee -a log-install.txt
 echo "   - DROPBEAR OHP            : 8090"  | tee -a log-install.txt
 echo "   - OPENVPN OHP             : 8089"  | tee -a log-install.txt
-echo "   - V2RAY Vmess TLS         : 8443"  | tee -a log-install.txt
-echo "   - V2RAY Vmess None TLS    : 80"  | tee -a log-install.txt
-echo "   - V2RAY Vless TLS         : 2083"  | tee -a log-install.txt
-echo "   - V2RAY Vless None TLS    : 8880"  | tee -a log-install.txt
-echo "   - Trojan                  : 2087"  | tee -a log-install.txt
 echo "   - XRAY VMESS TCP          : 6363"  | tee -a log-install.txt
 echo "   - XRAY VMESS NONE TCP     : 6464"  | tee -a log-install.txt
 echo "   - XRAY VLESS TCP          : 6565"  | tee -a log-install.txt
@@ -184,7 +169,6 @@ echo "   - XRAY VLESS XTLS         : 88"  | tee -a log-install.txt
 echo "   - TROGAN GO               : 2096"  | tee -a log-install.txt
 echo "   - XRAY VMESS GRPC         : 8000"  | tee -a log-install.txt
 echo "   - XRAY VLESS GRPC         : 880"  | tee -a log-install.txt
-
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
 echo "   - Timezone                : Asia/MALAYSIA (GMT +8)"  | tee -a log-install.txt

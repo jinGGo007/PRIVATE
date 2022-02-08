@@ -166,7 +166,6 @@ echo "   - XRAY VMESS NONE TCP     : 6464"  | tee -a log-install.txt
 echo "   - XRAY VLESS TCP          : 6565"  | tee -a log-install.txt
 echo "   - XRAY VLESS None TCP     : 6666"  | tee -a log-install.txt
 echo "   - XRAY VLESS XTLS         : 88"  | tee -a log-install.txt
-echo "   - TROGAN GO               : 2096"  | tee -a log-install.txt
 echo "   - XRAY VMESS GRPC         : 8000"  | tee -a log-install.txt
 echo "   - XRAY VLESS GRPC         : 880"  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt

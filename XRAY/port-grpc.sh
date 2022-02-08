@@ -8,10 +8,10 @@ clear
 tls="$(cat ~/log-install.txt | grep -w "XRAY VMESS GRPC" | cut -d: -f2|sed 's/ //g')"
 none="$(cat ~/log-install.txt | grep -w "XRAY VLESS GRPC" | cut -d: -f2|sed 's/ //g')"
 echo -e "======================================"
-echo -e "      Change Port XRAY Vmess"
+echo -e "      Change Port XRAY Grpc"
 echo -e ""
-echo -e "     [1]  Change Port XRay VMess GRPC $tls"
-echo -e "     [2]  Change Port XRay VLess GRPC TCP $none"
+echo -e "     [1]  Change Port XRAY Vmess Grpc $tls"
+echo -e "     [2]  Change Port XRAY Vless Grpc $none"
 echo -e "     [x]  Exit"
 echo -e "======================================"
 echo -e ""
@@ -36,10 +36,10 @@ iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
 netfilter-persistent reload > /dev/null
-systemctl stop xr-vm-tls.service > /dev/null
-systemctl enable xr-vm-tls.service > /dev/null
-systemctl start xr-vm-tls.service > /dev/null
-systemctl restart xr-vm-tls.service > /dev/null
+systemctl stop vmess-grpc.service > /dev/null
+systemctl enable vmess-grpc.service > /dev/null
+systemctl start vmess-grpc.service > /dev/null
+systemctl restart vmess-grpc.service > /dev/null
 echo -e "\e[032;1mPort $tls1 modified successfully\e[0m"
 else
 echo "Port $tls1 is used"
@@ -64,10 +64,10 @@ iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save > /dev/null
 netfilter-persistent reload > /dev/null
-systemctl stop xr-vm-ntls.service > /dev/null
-systemctl enable xr-vm-ntls.service > /dev/null
-systemctl start xr-vm-ntls.service > /dev/null
-systemctl restart xr-vm-ntls.service > /dev/null
+systemctl stop vless-grpc.service > /dev/null
+systemctl enable vless-grpc.service > /dev/null
+systemctl start vless-grpc.service > /dev/null
+systemctl restart vless-grpc.service > /dev/null
 echo -e "\e[032;1mPort $none1 modified successfully\e[0m"
 else
 echo "Port $none1 is used"

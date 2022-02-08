@@ -111,24 +111,6 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 EOF
 
-cat > /etc/systemd/system/x-tr.service << EOF
-[Unit]
-Description=XRay Trojan Service
-Documentation=https://speedtest.net https://github.com/XTLS/Xray-core
-After=network.target nss-lookup.target
-
-[Service]
-User=root
-NoNewPrivileges=true
-ExecStart=/usr/local/xray/xray -config /etc/xray/trojan.json
-RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
 # // Installing Xray
 wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/plugin-xray.sh && chmod +x plugin-xray.sh && ./plugin-xray.sh
 rm -f /root/plugin-xray.sh
@@ -811,8 +793,6 @@ iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 6666 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 6666 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 88 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 88 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2096 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2096 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8000 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8000 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 880 -j ACCEPT
@@ -832,8 +812,6 @@ systemctl enable xr-vl-ntls.service
 systemctl start xr-vl-ntls.service
 systemctl enable xtls.service
 systemctl start xtls.service
-systemctl enable x-tr.service
-systemctl start x-tr.service
 systemctl enable vmess-grpc.service
 systemctl start vmess-grpc.service
 systemctl enable vless-grpc.service
@@ -846,22 +824,18 @@ wget -O pxray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/pxr
 wget -O mxtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxtls.sh"
 wget -O mxvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxvmess.sh"
 wget -O mxvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxvless.sh"
-wget -O mxtrgo "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxtrgo.sh"
 wget -O mgrpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mgrpc.sh"
 wget -O add-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xtls.sh"
 wget -O add-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xvmess.sh"
 wget -O add-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xvless.sh"
-wget -O add-xtrgo "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xtrgo"
 wget -O add-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-grpc.sh"
 wget -O del-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xtls.sh"
 wget -O del-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xvmess.sh"
 wget -O del-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xvless.sh"
-wget -O del-xtrgo "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xtrgo.sh"
 wget -O del-xgrpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-grpc.sh"
 wget -O cek-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-xtls.sh"
 wget -O cek-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-xvmess.sh"
 wget -O cek-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-xvless.sh"
-wget -O cek-xtrgo "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-xtrgo.sh"
 wget -O cek-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-grpc.sh"
 wget -O renew-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/renew-xtls.sh"
 wget -O renew-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/renew-xvmess.sh"
@@ -871,39 +845,32 @@ wget -O renew-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRA
 wget -O port-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xtls.sh"
 wget -O port-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xvmess.sh"
 wget -O port-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xvless.sh"
-wget -O port-xtrgo "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xtrgo.sh"
 wget -O port-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-grpc.sh"
 chmod +x pv2ray
 chmod +x pxray
 chmod +x mxtls
 chmod +x mxvmess
 chmod +x mxvless
-chmod +x mxtrgo
 chmod +x mgrpc
 chmod +x add-xtls
 chmod +x add-xvmess
 chmod +x add-xvless
-chmod +x add-xtrgo
 chmod +x add-grpc
 chmod +x del-xtls
 chmod +x del-xvmess
 chmod +x del-xvless
-chmod +x del-xtrgo
 chmod +x del-xgrpc
 chmod +x cek-xtls
 chmod +x cek-xvmess
 chmod +x cek-xvless
-chmod +x cek-xtrgo
 chmod +x cek-grpc
 chmod +x renew-xtls
 chmod +x renew-xvmess
 chmod +x renew-xvless
-chmod +x renew-xtrgo
 chmod +x renew-grpc
 chmod +x port-xtls
 chmod +x port-xvmess
 chmod +x port-xvless
-chmod +x port-xtrgo
 chmod +x port-grpc
 cd
 rm -f install-xray.sh

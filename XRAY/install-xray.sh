@@ -7,20 +7,13 @@ clear
 
 domain=$(cat /etc/v2ray/domain)
 
-# / / Ambil Xray Core Version Terbaru
-latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-
-# / / Installation Xray Core
-xraycore_link="https://github.com/XTLS/Xray-core/releases/download/v$latest_version/xray-linux-64.zip"
-
 # // Make Main Directory
 mkdir -p /usr/local/xray/
 
-# / / Unzip Xray Linux 64
-cd `mktemp -d`
-curl -sL "$xraycore_link" -o xray.zip
-unzip -q xray.zip && rm -rf xray.zip
-mv xray /usr/local/xray/xray
+# // Installation XRay Core
+wget -q -O /usr/local/xray/xray "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/xray-mini" 
+wget -q -O /usr/local/xray/geosite.dat "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/geosite.dat"
+wget -q -O /usr/local/xray/geoip.dat "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/geoip.dat"
 chmod +x /usr/local/xray/xray
 
 # // Make XRay Mini Root Folder
@@ -100,33 +93,12 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 EOF
 
-cat > /etc/systemd/system/xtls.service << EOF
-[Unit]
-Description=XRay XTLS Service
-Documentation=https://speedtest.net https://github.com/XTLS/Xray-core
-After=network.target nss-lookup.target
-
-[Service]
-User=root
-NoNewPrivileges=true
-ExecStart=/usr/local/xray/xray -config /etc/xray/xrayxtls.json
-RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
-
-[Install]
-WantedBy=multi-user.target
-EOF
-
 # // Installing Xray
-mkdir /root/.acme.sh
-curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
-chmod +x /root/.acme.sh/acme.sh
-/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
-service squid start
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/plugin-xray.sh && chmod +x plugin-xray.sh && ./plugin-xray.sh
+rm -f /root/plugin-xray.sh
 
-service squid start
+# Install Trojan Go
+wget https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/trgo.sh && chmod +x trgo.sh && ./trgo.sh
 uuid=$(cat /proc/sys/kernel/random/uuid)
 password="$(tr -dc 'a-z0-9A-Z' </dev/urandom | head -c 16)"
 cat > /etc/xray/vmesstls.json <<END
@@ -551,63 +523,6 @@ cat > /etc/xray/vlessnone.json <<END
   }
 }
 END
-cat > /etc/xray/xrayxtls.json << END
-{
-  "inbounds": [
-    {
-      "port": 6767,
-      "protocol": "vless",
-      "settings": {
-        "clients": [
-          {
-            "id": "${uuid}",
-            "flow": "xtls-rprx-direct"
-#XRay
-          }
-        ],
-        "decryption": "none",
-        "fallbacks": [
-          {
-            "dest": 60000,
-            "alpn": "",
-            "xver": 1
-          },
-          {
-            "dest": 60001,
-            "alpn": "h2",
-            "xver": 1
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "tcp",
-        "security": "xtls",
-        "xtlsSettings": {
-          "minVersion": "1.2",
-          "certificates": [
-            {
-              "certificateFile": "/etc/xray/xray.crt",
-              "keyFile": "/etc/xray/xray.key"
-            }
-          ]
-        }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom"
-    }
-  ]
-}
-END
 
 cat > /etc/xray/vmessgrpc.json << END
 {
@@ -753,8 +668,6 @@ iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 6565 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 6565 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 6666 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 6666 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 6767 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 6767 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 6868 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 6868 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 6969 -j ACCEPT
@@ -772,60 +685,45 @@ systemctl enable xr-vl-tls.service
 systemctl start xr-vl-tls.service
 systemctl enable xr-vl-ntls.service
 systemctl start xr-vl-ntls.service
-systemctl enable xtls.service
-systemctl start xtls.service
 systemctl enable vmess-grpc.service
 systemctl start vmess-grpc.service
 systemctl enable vless-grpc.service
 systemctl start vless-grpc.service
 
 cd /usr/bin
-
-wget -O mxtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxtls.sh"
 wget -O mxvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxvmess.sh"
 wget -O mxvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mxvless.sh"
 wget -O mgrpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/mgrpc.sh"
-wget -O add-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xtls.sh"
 wget -O add-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xvmess.sh"
 wget -O add-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-xvless.sh"
 wget -O add-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/add-grpc.sh"
-wget -O del-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xtls.sh"
 wget -O del-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xvmess.sh"
 wget -O del-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-xvless.sh"
 wget -O del-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/del-grpc.sh"
-wget -O cek-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-xtls.sh"
 wget -O cek-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-xvmess.sh"
 wget -O cek-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-xvless.sh"
 wget -O cek-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/cek-grpc.sh"
-wget -O renew-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/renew-xtls.sh"
 wget -O renew-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/renew-xvmess.sh"
 wget -O renew-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/renew-xvless.sh"
 wget -O renew-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/renew-grpc.sh"
-wget -O port-xtls "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xtls.sh"
 wget -O port-xvmess "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xvmess.sh"
 wget -O port-xvless "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-xvless.sh"
 wget -O port-grpc "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/XRAY/port-grpc.sh"
-chmod +x mxtls
 chmod +x mxvmess
 chmod +x mxvless
 chmod +x mgrpc
-chmod +x add-xtls
 chmod +x add-xvmess
 chmod +x add-xvless
 chmod +x add-grpc
-chmod +x del-xtls
 chmod +x del-xvmess
 chmod +x del-xvless
 chmod +x del-grpc
-chmod +x cek-xtls
 chmod +x cek-xvmess
 chmod +x cek-xvless
 chmod +x cek-grpc
-chmod +x renew-xtls
 chmod +x renew-xvmess
 chmod +x renew-xvless
 chmod +x renew-grpc
-chmod +x port-xtls
 chmod +x port-xvmess
 chmod +x port-xvless
 chmod +x port-grpc

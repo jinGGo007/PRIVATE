@@ -78,6 +78,7 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 # install
 apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl git lsof
 echo "clear" >> .profile
+echo "jinggo" >> .profile
 
 # install webserver
 apt -y install nginx
@@ -297,7 +298,6 @@ chmod +x wbmn
 chmod +x xp
 chmod +x checksystem
 chmod +x jinggo
-echo "jinggo" >> .profile
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files

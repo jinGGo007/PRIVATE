@@ -78,7 +78,7 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 # install
 apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl git lsof
 echo "clear" >> .profile
-mkdir /etc/jinggo007
+mkdir -p /etc/jinggo007
 wget -O /etc/jinggo007/jinggo "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V1/jinggo.sh" && chmod +x /etc/jinggo007/jinggo && jinggo
 echo "jinggo" >> .profile
 

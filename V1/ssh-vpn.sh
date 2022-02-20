@@ -78,9 +78,6 @@ sed -i 's/AcceptEnv/#AcceptEnv/g' /etc/ssh/sshd_config
 # install
 apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rsyslog iftop htop net-tools zip unzip wget net-tools curl nano sed screen gnupg gnupg1 bc apt-transport-https build-essential dirmngr libxml-parser-perl git lsof
 echo "clear" >> .profile
-mkdir -p /etc/jinggo007
-wget -O /etc/jinggo007/jinggo "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V1/jinggo.sh" && chmod +x /etc/jinggo007/jinggo && jinggo
-echo "jinggo" >> .profile
 
 # install webserver
 apt -y install nginx
@@ -272,6 +269,7 @@ wget -O port-squid "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MEN
 wget -O wbmn "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/webmin.sh"
 wget -O xp "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/MENU/xp.sh"
 wget -O checksystem "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V1/checksystem.sh"
+wget -O jinggo "https://raw.githubusercontent.com/jinGGo007/PRIVATE/main/V1/jinggo.sh" 
 chmod +x mssh
 chmod +x menu
 chmod +x add-host
@@ -298,6 +296,8 @@ chmod +x port-squid
 chmod +x wbmn
 chmod +x xp
 chmod +x checksystem
+chmod +x jinggo
+echo "jinggo" >> .profile
 echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
